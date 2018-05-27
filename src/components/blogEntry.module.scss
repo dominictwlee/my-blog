@@ -1,0 +1,41 @@
+@import '../styles/vars.scss';
+
+.tag {
+  color: $secondaryMain;
+}
+
+.container {
+  margin: 4rem 20rem;
+}
+
+.blog {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  grid-template-rows: repeat(auto-fill, minmax(3rem, 1fr));
+}
+
+.blogMain {
+  grid-column: 2 / span 1;
+}
+
+.title {
+  composes: blogMain;
+  grid-row: 1 / span 1;
+}
+
+.body {
+  composes: blogMain;
+  grid-row: 2 / span 1;
+}
+
+.title {
+}
+
+.aside {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

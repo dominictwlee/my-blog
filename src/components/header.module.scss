@@ -1,0 +1,10 @@
+@import '../styles/vars.scss';
+
+.header {
+  padding: 0 1rem;
+  display: flex;
+  min-height: 4.5rem;
+  align-items: center;
+  background-color: $primaryMain;
+  color: #ffffff;
+}
