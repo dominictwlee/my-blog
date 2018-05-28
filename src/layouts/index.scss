@@ -4,7 +4,7 @@ html {
   font-size: 16px;
   font-family: 'Open Sans';
   min-height: 100vh;
-  line-height: 1.25;
+  line-height: 1.5;
   background-color: $background;
 }
 
@@ -16,6 +16,7 @@ h5,
 h6 {
   font-family: 'Alegreya';
   font-weight: 500;
+  margin-bottom: 1.25rem;
 }
 
 h1 {
@@ -40,6 +41,10 @@ h5 {
 
 h6 {
   font-size: 0.75rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
 }
 
 a {

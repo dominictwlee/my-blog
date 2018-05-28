@@ -3,8 +3,13 @@
 .header {
   padding: 0 1rem;
   display: flex;
-  min-height: 4.5rem;
+  min-height: 5.5rem;
   align-items: center;
   background-color: $primaryMain;
   color: #ffffff;
+}
+
+.title {
+  margin: 0 auto;
+  font-size: 4rem;
 }

@@ -1,5 +1,5 @@
 .container {
-  padding: 4rem 30rem;
+  margin: 4rem 30rem;
   display: grid;
   grid-template-columns: 10rem 1fr;
   grid-template-rows: repeat(auto-fill, minmax(4rem, 1fr));

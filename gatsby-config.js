@@ -3,17 +3,17 @@ module.exports = {
     title: 'Dominic Lee - Learning Journal',
   },
   plugins: [
-    'gatsby-transformer-remark',
+    `gatsby-transformer-remark`,
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'src',
+        name: `src`,
         path: `${__dirname}/src/`,
       },
     },
     `gatsby-transformer-remark`,
     {
-      resolve: 'gatsby-plugin-postcss-sass',
+      resolve: `gatsby-plugin-postcss-sass`,
       options: {
         postCssPlugins: [],
         precision: 8,

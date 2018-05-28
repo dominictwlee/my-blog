@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './blog-post.module.css';
+
 const BlogTemplate = ({ data }) => {
   const post = data.markdownRemark;
   return (

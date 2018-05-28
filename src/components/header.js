@@ -6,7 +6,7 @@ import styles from './header.module.scss';
 const Header = ({ siteTitle }) => (
   <div>
     <div className={styles.header}>
-      <h1>
+      <h1 className={styles.title}>
         <Link to="/">{siteTitle}</Link>
       </h1>
     </div>
