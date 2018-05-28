@@ -19,5 +19,6 @@ module.exports = {
         precision: 8,
       },
     },
+    'gatsby-plugin-react-next',
   ],
 };

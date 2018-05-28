@@ -8,6 +8,7 @@
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-postcss-sass": "^1.0.20",
     "gatsby-plugin-react-helmet": "^2.0.10",
+    "gatsby-plugin-react-next": "^1.0.11",
     "gatsby-source-filesystem": "^1.5.36",
     "gatsby-transformer-remark": "^1.7.41",
     "minireset.css": "0.0.3",

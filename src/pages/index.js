@@ -6,8 +6,7 @@ import BlogEntry from '../components/blogEntry';
 import styles from './index.module.scss';
 
 const BlogIndex = ({ data }) => (
-  <div>
-    <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+  <div className={styles.container}>
     {data.allMarkdownRemark.edges.map(({ node }) => (
       <BlogEntry
         key={node.id}
