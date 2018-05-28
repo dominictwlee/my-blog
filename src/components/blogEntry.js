@@ -1,18 +1,18 @@
 import React from 'react';
+import Link from 'gatsby-link';
 
 import styles from './blogEntry.module.scss';
 
-const BlogEntry = () => (
+const BlogEntry = ({ link, title, date, excerpt }) => (
   <div className={styles.container}>
     <article className={styles.blog}>
-      <h1 className={styles.title}>This is the title of the blog post</h1>
-      <p className={styles.body}>
-        Nec ut postea timeam, noster oblique disputando at vix. Per civibus tincidunt ei, nibh expetenda consequuntur
-        his no. In postea omnesque repudiare his. Ei illum nominati nam, ex vocibus posidonium mea.
-      </p>
+      <Link to={link}>
+        <h1 className={styles.title}>{title}</h1>
+        <p className={styles.body}>{excerpt}..</p>
+      </Link>
 
       <div className={styles.aside}>
-        <span className={styles.tag}>Date</span>
+        <span className={styles.tag}>{date}</span>
         <span className={styles.tag}>tags</span>
         <span className={styles.tag}>tags</span>
         <span className={styles.tag}>tags</span>

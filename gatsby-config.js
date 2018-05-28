@@ -3,7 +3,6 @@ module.exports = {
     title: 'Dominic Lee - Learning Journal',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
     'gatsby-transformer-remark',
     {
       resolve: 'gatsby-source-filesystem',
@@ -12,6 +11,7 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    `gatsby-transformer-remark`,
     {
       resolve: 'gatsby-plugin-postcss-sass',
       options: {

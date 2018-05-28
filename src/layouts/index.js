@@ -13,10 +13,6 @@ import './index.scss';
 
 const Layout = ({ children, data }) => (
   <div>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[{ name: 'description', content: 'Sample' }, { name: 'keywords', content: 'sample, something' }]}
-    />
     <Header siteTitle={data.site.siteMetadata.title} />
     <div>{children()}</div>
   </div>

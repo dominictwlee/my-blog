@@ -5,11 +5,41 @@ import BlogEntry from '../components/blogEntry';
 
 import styles from './index.module.scss';
 
-const BlogIndex = () => (
+const BlogIndex = ({ data }) => (
   <div>
-    <BlogEntry />
-    <Link to="/page-2/">Go to page 2</Link>
+    <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+    {data.allMarkdownRemark.edges.map(({ node }) => (
+      <BlogEntry
+        key={node.id}
+        link={node.fields.slug}
+        title={node.frontmatter.title}
+        date={node.frontmatter.date}
+        excerpt={node.excerpt}
+      />
+    ))}
+    <Link to="/my-files/">Go to file directory</Link>
   </div>
 );
+
+export const query = graphql`
+  query IndexQuery {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`;
 
 export default BlogIndex;
