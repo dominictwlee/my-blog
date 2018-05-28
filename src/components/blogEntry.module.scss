@@ -1,11 +1,16 @@
 @import '../styles/vars.scss';
 
 .tag {
-  color: $secondaryMain;
+  color: $secondaryLight;
 }
 
 .blogMain {
   grid-column: 2 / span 1;
+
+  &:hover {
+    color: $secondaryMain;
+    transition: color 300ms ease-out;
+  }
 }
 
 .title {

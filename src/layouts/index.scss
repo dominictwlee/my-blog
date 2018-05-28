@@ -1,8 +1,11 @@
+@import '../styles/vars.scss';
+
 html {
   font-size: 16px;
   font-family: 'Open Sans';
   min-height: 100vh;
   line-height: 1.25;
+  background-color: $background;
 }
 
 h1,
@@ -12,6 +15,7 @@ h4,
 h5,
 h6 {
   font-family: 'Alegreya';
+  font-weight: 500;
 }
 
 h1 {

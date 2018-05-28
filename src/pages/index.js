@@ -16,7 +16,6 @@ const BlogIndex = ({ data }) => (
         excerpt={node.excerpt}
       />
     ))}
-    <Link to="/my-files/">Go to file directory</Link>
   </div>
 );
 
