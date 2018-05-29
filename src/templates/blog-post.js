@@ -5,8 +5,8 @@ import styles from './blog-post.module.css';
 const BlogTemplate = ({ data }) => {
   const post = data.markdownRemark;
   return (
-    <div>
-      <h1>{post.frontmatter.title}</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>{post.frontmatter.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </div>
   );
