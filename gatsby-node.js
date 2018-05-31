@@ -5,11 +5,13 @@
  */
 
 const path = require('path');
+const kebabCase = require('lodash/kebabCase');
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
+  const blogPostTemplate = path.resolve('src/templates/blog-post.js');
+  const tagTemplate = path.resolve('src/templates/tags.js');
 
   return graphql(`
     {
@@ -34,8 +36,10 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     }
 
     const posts = result.data.allMarkdownRemark.edges;
+    let tags = [];
 
     posts.forEach(({ node }, index) => {
+      //  Create detailed blog post page
       const prev = index === 0 ? null : posts[index - 1].node;
       const next = index === posts.length - 1 ? null : posts[index + 1].node;
       createPage({
@@ -46,8 +50,25 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           next,
         },
       });
+
+      //Put all found tags into tags
+      if (node.frontmatter.tags) {
+        tags = tags.concat(node.frontmatter.tags);
+      }
     });
 
-    return posts;
+    //  Eliminate duplicate tags
+    tags = [...new Set(tags)];
+
+    //  Make tag pages
+    tags.forEach(tag => {
+      createPage({
+        path: `/tags/${kebabCase(tag)}`,
+        component: tagTemplate,
+        context: {
+          tag,
+        },
+      });
+    });
   });
 };
