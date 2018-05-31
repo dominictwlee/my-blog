@@ -6,15 +6,19 @@ module.exports = {
   plugins: [
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
+        name: 'pages',
         path: `${__dirname}/src/pages`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [],
+      },
+    },
     {
       resolve: `gatsby-plugin-postcss-sass`,
       options: {

@@ -6,46 +6,45 @@
 
 // You can delete this file if you're not using it
 const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-  const { createNodeField } = boundActionCreators;
-  if (node.internal.type === 'MarkdownRemark') {
-    const slug = createFilePath({ node, getNode, basePath: 'pages' });
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug,
-    });
-  }
-};
-
-exports.createPages = ({ graphql, boundActionCreators }) => {
+exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
-  return new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-              }
+
+  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
+
+  return graphql(`
+    {
+      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
+        edges {
+          node {
+            frontmatter {
+              path
+              tags
             }
           }
         }
       }
-    `).then(result => {
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve('./src/templates/blog-post.js'),
-          context: {
-            slug: node.fields.slug,
-          },
-        });
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors);
+    }
+
+    const posts = result.data.allMarkdownRemark.edges;
+
+    posts.forEach(({ node }, index) => {
+      const prev = index === 0 ? false : posts[index - 1].node;
+      const next = index === posts.length - 1 ? false : posts[index + 1].node;
+      createPage({
+        path: node.frontmatter.path,
+        component: blogPostTemplate,
+        // context: {
+        //   prev,
+        //   next,
+        // },
       });
-      resolve();
     });
+
+    return posts;
   });
 };

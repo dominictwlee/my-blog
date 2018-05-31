@@ -1,10 +1,10 @@
 ---
 title: 'Sweet pandas eating sweets'
 date: '2017-08-10'
+path: '/sweet-pandas'
+tags: ['stuff']
 ---
 
-Pandas are really sweet.
+Bacon ipsum dolor amet buffalo jerky bacon sirloin venison landjaeger beef ribs, tenderloin doner biltong. Fatback pig tongue meatloaf. Ball tip tail pastrami, turducken tongue beef ribs short ribs tri-tip venison chicken andouille beef. Ground round biltong spare ribs, t-bone kevin frankfurter short ribs.
 
-Here's a video of a panda eating sweets.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4n0xNbfJLR8" frameborder="0" allowfullscreen></iframe>
+Kielbasa capicola tenderloin alcatra sirloin bacon kevin burgdoggen brisket. Drumstick leberkas fatback doner rump.
