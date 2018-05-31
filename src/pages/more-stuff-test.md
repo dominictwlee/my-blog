@@ -1,7 +1,7 @@
 ---
-title: 'Cool Elephants'
+title: 'Bacon Ipsum'
 date: '2018-05-28'
-path: '/cool-elephants'
+path: '/bacon'
 tags: ["animals", "zoos", "cute"]
 ---
 

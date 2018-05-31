@@ -4,7 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
 const path = require('path');
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
@@ -17,9 +16,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
         edges {
           node {
+            html
+            id
             frontmatter {
               path
               tags
+              date
+              title
             }
           }
         }
@@ -33,15 +36,15 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges;
 
     posts.forEach(({ node }, index) => {
-      const prev = index === 0 ? false : posts[index - 1].node;
-      const next = index === posts.length - 1 ? false : posts[index + 1].node;
+      const prev = index === 0 ? null : posts[index - 1].node;
+      const next = index === posts.length - 1 ? null : posts[index + 1].node;
       createPage({
         path: node.frontmatter.path,
         component: blogPostTemplate,
-        // context: {
-        //   prev,
-        //   next,
-        // },
+        context: {
+          prev,
+          next,
+        },
       });
     });
 
