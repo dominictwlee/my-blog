@@ -1,5 +1,6 @@
 .container {
-  margin: 4rem 30rem;
+  max-width: 60rem;
+  margin: 4rem auto;
   display: grid;
   grid-template-columns: 10rem 1fr;
   grid-template-rows: repeat(auto-fill, minmax(4rem, 1fr));

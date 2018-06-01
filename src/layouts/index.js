@@ -8,7 +8,7 @@ import Header from '../components/header';
 //  Styles
 import 'minireset.css';
 import 'typeface-open-sans';
-import 'typeface-alegreya';
+import 'typeface-francois-one';
 import './index.scss';
 
 const Layout = ({ children, data }) => (
