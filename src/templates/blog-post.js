@@ -1,8 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
+import NavigateBefore from '@material-ui/icons/NavigateBefore';
+import NavigateNext from '@material-ui/icons/NavigateNext';
+import Home from '@material-ui/icons/Home';
 
-import styles from './blog-post.module.css';
+import styles from './blog-post.module.scss';
+
+import Nav from '../components/nav';
 
 const BlogTemplate = ({ data, location, pathContext }) => {
   console.log(pathContext);
@@ -10,10 +15,23 @@ const BlogTemplate = ({ data, location, pathContext }) => {
   const { markdownRemark: post } = data;
   return (
     <div className={styles.container}>
-      <nav>
-        {prev && <Link to={prev.frontmatter.path}>{prev.frontmatter.title}</Link>}
-        {next && <Link to={next.frontmatter.path}>{next.frontmatter.title}</Link>}
-      </nav>
+      <Nav styleClass="tagNav">
+        {prev && (
+          <div className={styles.tagWrapper}>
+            <NavigateBefore style={{ fontSize: 48 }} />
+            <Link to={prev.frontmatter.path}>{prev.frontmatter.title}</Link>
+          </div>
+        )}
+        <Link className={styles.tagWrapper} to="/">
+          <Home style={{ fontSize: 40 }} />
+        </Link>
+        {next && (
+          <div className={styles.tagWrapper}>
+            <Link to={next.frontmatter.path}>{next.frontmatter.title}</Link>
+            <NavigateNext style={{ fontSize: 48 }} />
+          </div>
+        )}
+      </Nav>
 
       <Helmet title={`Dominic Lee - ${post.frontmatter.title}`} />
       <h1 className={styles.title}>{post.frontmatter.title}</h1>

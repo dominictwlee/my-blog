@@ -1,0 +1,20 @@
+@import '../styles/vars.scss';
+
+.container {
+  width: 50rem;
+  margin: 4rem auto;
+}
+
+.tagWrapper {
+  color: white;
+  font-size: 1.25rem;
+  font-family: 'Francois One';
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: $secondaryLight;
+    transition: color 300ms linear;
+  }
+}
