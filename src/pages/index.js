@@ -20,6 +20,7 @@ const BlogIndex = ({ data }) => {
             title={post.frontmatter.title}
             date={post.frontmatter.date}
             excerpt={post.excerpt}
+            tags={post.frontmatter.tags}
           />
         ))}
     </div>

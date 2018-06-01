@@ -1,7 +1,11 @@
 @import '../styles/vars.scss';
 
 .tag {
-  color: $secondaryLight;
+  color: $secondaryDark;
+
+  &:hover {
+    color: $secondaryLight;
+  }
 }
 
 .blogMain {

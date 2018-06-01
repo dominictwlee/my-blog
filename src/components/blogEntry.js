@@ -1,12 +1,18 @@
 import React, { Fragment } from 'react';
 import Link from 'gatsby-link';
+import kebabCase from 'lodash/kebabCase';
 
 import styles from './blogEntry.module.scss';
 
-const BlogEntry = ({ link, title, date, excerpt }) => (
+const BlogEntry = ({ link, title, date, excerpt, tags }) => (
   <Fragment>
     <div className={styles.aside}>
-      <span className={styles.tag}>{date}</span>
+      <span>{date}</span>
+      {tags.map(tag => (
+        <Link to={`/tags/${kebabCase(tag)}`} className={styles.tag}>
+          {tag}
+        </Link>
+      ))}
     </div>
     <div className={styles.blogMain}>
       <Link to={link}>
