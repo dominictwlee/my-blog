@@ -3,6 +3,7 @@ title: 'Bacon Ipsum'
 date: '2018-05-28'
 path: '/bacon'
 tags: ["animals", "zoos", "cute"]
+published: true
 ---
 
 Cupim drumstick shankle pork. Tongue cow shank buffalo, ribeye t-bone ham capicola ground round kielbasa shoulder meatloaf tri-tip. Chicken leberkas cupim swine andouille. Strip steak short ribs beef chicken, kevin spare ribs picanha.

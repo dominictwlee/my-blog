@@ -12,7 +12,7 @@ const TagsIndex = ({
     },
   },
 }) => {
-  console.log(group);
+  console.log(group, title);
   return (
     <div>
       <Helmet title={title} />
@@ -39,7 +39,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(limit: 2000) {
+    allMarkdownRemark(limit: 2000, filter: { frontmatter: { published: { ne: false } } }) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount
